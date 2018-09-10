@@ -1,7 +1,7 @@
 {
-  "firstName": "",
-  "lastName": "",
-  "passwordHash": "",
-  "formOfStudy": "",
-  "uniId": ""
+  "firstName": "Nikolai",
+  "lastName": "Kopa",
+  "passwordHash": "be301a5314617cf2c2f7f193807deb50cb9f3288392c00e8d12763ab4c4af81b",
+  "formOfStudy": "S",
+  "uniId": "nikopa"
 }
