@@ -1,9 +1,9 @@
-package hw2;
+package test.hw2;
 
-import hw2.model.Order;
-import hw2.utils.IdGenerator;
-import hw2.utils.JsonConverter;
-import hw2.utils.Util;
+import test.hw2.model.Order;
+import test.hw2.utils.IdGenerator;
+import test.hw2.utils.JsonConverter;
+import test.hw2.utils.Util;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

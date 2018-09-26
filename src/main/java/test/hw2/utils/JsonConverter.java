@@ -1,6 +1,6 @@
-package hw2.utils;
+package test.hw2.utils;
 
-import hw2.model.Order;
+import test.hw2.model.Order;
 
 public class JsonConverter {
 

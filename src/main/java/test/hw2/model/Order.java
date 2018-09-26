@@ -1,4 +1,4 @@
-package hw2.model;
+package test.hw2.model;
 
 import lombok.Getter;
 import lombok.Setter;

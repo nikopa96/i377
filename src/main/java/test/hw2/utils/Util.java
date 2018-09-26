@@ -1,4 +1,4 @@
-package hw2.utils;
+package test.hw2.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
