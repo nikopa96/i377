@@ -1,6 +1,6 @@
-package test.hw2.utils;
+package project.order.utils;
 
-import test.hw2.model.Order;
+import project.order.model.Order;
 
 public class JsonConverter {
 
