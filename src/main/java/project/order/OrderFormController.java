@@ -2,7 +2,6 @@ package project.order;
 
 import project.order.model.Order;
 import project.order.service.OrderService;
-import project.order.utils.IdGenerator;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,10 +22,7 @@ public class OrderFormController extends HttpServlet {
         Optional<String> orderNumber = Optional.ofNullable(request.getParameter("orderNumber"));
 
         if (orderNumber.isPresent()) {
-            IdGenerator.incrementId();
-
             Order order = new Order();
-            order.setId(IdGenerator.id);
             order.setOrderNumber(orderNumber.get());
 
             orderService.addOrder(order);

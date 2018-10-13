@@ -3,7 +3,6 @@ package project.order;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import project.order.model.Order;
 import project.order.service.OrderService;
-import project.order.utils.IdGenerator;
 import project.order.utils.Util;
 
 import javax.servlet.annotation.WebServlet;
@@ -24,9 +23,6 @@ public class OrderController extends HttpServlet {
         String requestJson = Util.asString(request.getInputStream());
 
         Order order = objectMapper.readValue(requestJson, Order.class);
-        IdGenerator.incrementId();
-        order.setId(IdGenerator.id);
-
         orderService.addOrder(order);
 
         String responseJson = objectMapper.writeValueAsString(order);
