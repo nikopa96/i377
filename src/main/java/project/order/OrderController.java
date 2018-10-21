@@ -1,6 +1,9 @@
 package project.order;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import project.order.item.model.Item;
+import project.order.jdbc.OrderDao;
+import project.order.jdbc.OrderDaoImpl;
 import project.order.model.Order;
 import project.order.service.OrderService;
 import project.order.utils.Util;
@@ -10,22 +13,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Optional;
 
 @WebServlet("/api/orders")
 public class OrderController extends HttpServlet {
 
     private ObjectMapper objectMapper = new ObjectMapper();
-    private OrderService orderService = new OrderService();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String requestJson = Util.asString(request.getInputStream());
 
-        Order order = objectMapper.readValue(requestJson, Order.class);
-        orderService.addOrder(order);
+        Order rawOrder = objectMapper.readValue(requestJson, Order.class);
+        OrderDao orderDao = new OrderDaoImpl();
 
-        String responseJson = objectMapper.writeValueAsString(order);
+        Order responseOrder = orderDao.insertOrder(rawOrder);
+
+        String responseJson = objectMapper.writeValueAsString(responseOrder);
 
         response.setHeader("Content-Type", "application/json");
         response.getWriter().print(responseJson);
@@ -39,11 +45,17 @@ public class OrderController extends HttpServlet {
         String responseJson;
 
         if (!paramId.isPresent()) {
-            responseJson = objectMapper.writeValueAsString(orderService.getAllOrders());
+            responseJson = objectMapper.writeValueAsString(new OrderDaoImpl().getAllOrders());
         } else {
-            responseJson = objectMapper.writeValueAsString(orderService.getOrdersById(Long.parseLong(paramId.get())));
+            responseJson = objectMapper.writeValueAsString(new OrderDaoImpl().getOrderById(Long.parseLong(paramId.get())));
         }
 
         response.getWriter().print(responseJson);
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) {
+        OrderDao orderDao = new OrderDaoImpl();
+        orderDao.deleteOrder(Long.parseLong(request.getParameter("id")));
     }
 }

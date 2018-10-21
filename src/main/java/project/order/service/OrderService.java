@@ -1,23 +1,23 @@
 package project.order.service;
 
-import project.order.jdbc.OrderDao;
+import project.order.jdbc.OrderDaoImpl;
 import project.order.model.Order;
 
 import java.util.List;
 
 public class OrderService {
 
-    private OrderDao orderDao = new OrderDao();
+    private OrderDaoImpl orderDaoImpl = new OrderDaoImpl();
 
     public void addOrder(Order order) {
-        orderDao.insertOrder(order);
+        orderDaoImpl.insertOrder(order);
     }
 
     public List<Order> getAllOrders() {
-        return orderDao.getAllOrders();
+        return orderDaoImpl.getAllOrders();
     }
 
     public Order getOrdersById(Long id) {
-        return orderDao.getOrderById(id);
+        return orderDaoImpl.getOrderById(id);
     }
 }

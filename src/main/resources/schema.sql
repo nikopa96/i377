@@ -1,7 +1,15 @@
 CREATE SEQUENCE seq1 START WITH 1;
 
 CREATE TABLE "ORDER" (
-  id BIGINT NOT NULL PRIMARY KEY,
-  order_number VARCHAR(255) NOT NULL,
-  order_row_id int
+  order_id BIGINT NOT NULL PRIMARY KEY,
+  order_number VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE "ITEM" (
+  name VARCHAR(255) NOT NULL,
+  quantity int NOT NULL,
+  price DECIMAL NOT NULL,
+  order_id BIGINT NOT NULL,
+  CONSTRAINT FK_Item_order_id FOREIGN KEY (order_id)
+  REFERENCES "ORDER"(order_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
