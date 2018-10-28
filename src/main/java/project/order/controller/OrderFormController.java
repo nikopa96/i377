@@ -1,4 +1,4 @@
-package project.order;
+package project.order.controller;
 
 import project.order.model.Order;
 import project.order.service.OrderService;

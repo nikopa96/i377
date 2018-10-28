@@ -104,6 +104,19 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
+    public void deleteAllOrders() {
+        String sql = "DELETE FROM \"ORDER\"";
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public void deleteOrder(Long id) {
         String sql = "DELETE FROM \"ORDER\" WHERE order_id = ?";
 
