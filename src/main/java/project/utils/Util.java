@@ -1,4 +1,4 @@
-package project.order.utils;
+package project.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

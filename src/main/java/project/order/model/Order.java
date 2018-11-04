@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import project.order.item.model.Item;
+import project.item.model.Item;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter
@@ -15,6 +17,8 @@ import java.util.List;
 public class Order {
 
     private Long id;
+
+    @NotNull
     private String orderNumber;
-    private List<Item> orderRows;
+    private List<@Valid Item> orderRows;
 }
