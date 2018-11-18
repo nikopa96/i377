@@ -10,12 +10,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**
- * Copyright
- *
- * Author: Mart Kälmo
- * Source: https://bitbucket.org/mkalmo/exservlet/src/master/src/main/java/exservlet/Util.java
- */
 public class ValidationErrors {
 
     @Getter

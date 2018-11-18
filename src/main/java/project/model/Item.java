@@ -1,11 +1,13 @@
-package project.item.model;
+package project.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.DecimalMin;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -13,8 +15,11 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Embeddable
+@Table(name = "order_rows")
 public class Item {
 
+    @Column(name = "item_name")
     private String itemName;
 
     @NotNull
@@ -22,8 +27,6 @@ public class Item {
     private Integer quantity;
 
     @NotNull
-    @DecimalMin(value = "0.01", message = "Price must be more than 0.01")
-    private Float price;
-
-    private Long orderId;
+    @Min(value = 0, message = "Price must be more than 0")
+    private Integer price;
 }

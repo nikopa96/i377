@@ -8,6 +8,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @EnableWebMvc
 @Import(DbConfig.class)
-@ComponentScan(basePackages = {"project.controller", "project.validation"})
+@ComponentScan(basePackages = {"project", "project.validation"})
 public class MvcConfig {
 }

@@ -2,11 +2,6 @@ package project.conf;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * Copyright
- * Märt Kalmo
- * Source: https://bitbucket.org/mkalmo/exmvc/src/master/src/main/java/conf/ApplicationInitializer.java
- */
 public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override

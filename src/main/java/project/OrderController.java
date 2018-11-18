@@ -1,9 +1,10 @@
-package project.controller;
+package project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import project.order.dao.OrderDao;
-import project.order.model.Order;
+import project.dao.OrderDao;
+import project.model.Order;
+import project.model.Report;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -40,4 +41,9 @@ public class OrderController {
     public void deleteAllOrders() {
         orderDao.deleteAll();
     }
+
+//    @GetMapping("orders/report")
+//    public Report getReport() {
+//        return orderDao.createReport();
+//    }
 }
